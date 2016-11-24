@@ -1,0 +1,20 @@
+% Selection of Exceld Data
+clear all 
+clc
+[FileName,PathName] = uigetfile('*.xls','Select the EXCEL file');
+excelFile='E:\Google Drive NTUT\Vibration and Noise Control\Homeworks\HM3\FrequencySpectrum\Script Matlab\y.xls';
+y = xlsread(excelFile,'A:A');
+%clear FileName PathName
+
+%% 
+
+samples=length(y) %the vector has 1600 elements.
+
+t=1/samples:1/samples:1;
+
+plot(t(1:0.5*samples),y(1:0.5*samples));
+xlabel('time(s)')
+ylabel('y')
+
+
+Y=fft(y);
