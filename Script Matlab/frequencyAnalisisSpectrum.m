@@ -7,7 +7,7 @@ y = xlsread(excelFile,'A:A');
 clear FileName PathName excelFile
 
 %% 
-% t1=0:1/500:2.5-1/500;
+% t1=1/500:1/500:2.5;
 % y=cos(2*pi*30*t1);
 samples=length(y) ;
 sampleTime=1;
@@ -23,7 +23,7 @@ ylabel('y')
 %% 
 
 Y=fft(y);
-f=(0:samples-1)*sampleFrequency/length(Y); 
+f=(0:samples-1)/sampleTime; 
 figure
 plot(f,abs(Y));    
 xlabel('Hz') 
